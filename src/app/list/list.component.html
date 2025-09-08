@@ -1,0 +1,30 @@
+<div class="table-container">
+  <h2>Listas de Reproducción</h2>
+  <div *ngFor="let lista of listas" class="card">
+    <div class="card-header">
+      <span>{{lista.nombre}} - {{lista.descripcion}}</span>
+      <button (click)="eliminarLista(lista.nombre)">Eliminar</button>
+    </div>
+    <div class="card-body">
+      <details>
+        <summary>Canciones ({{lista.cancion.length}})</summary>
+        <table>
+          <tr>
+            <th>Título</th>
+            <th>Artista</th>
+            <th>Álbum</th>
+            <th>Año</th>
+            <th>Género</th>
+          </tr>
+          <tr *ngFor="let c of lista.cancion">
+            <td>{{c.titulo}}</td>
+            <td>{{c.artista}}</td>
+            <td>{{c.album}}</td>
+            <td>{{c.anio}}</td>
+            <td>{{c.genero}}</td>
+          </tr>
+        </table>
+      </details>
+    </div>
+  </div>
+</div>

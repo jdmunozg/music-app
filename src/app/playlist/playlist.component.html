@@ -1,0 +1,29 @@
+<div class="playlist-container">
+  <h2>Crear Lista de Reproducción</h2>
+
+  <input [(ngModel)]="nombre" placeholder="Nombre de la lista" />
+  <input [(ngModel)]="descripcion" placeholder="Descripción" />
+
+  <h3>Agregar Canción</h3>
+  <input [(ngModel)]="nuevaCancion.titulo" placeholder="Título" />
+  <input [(ngModel)]="nuevaCancion.artista" placeholder="Artista" />
+  <input [(ngModel)]="nuevaCancion.album" placeholder="Álbum" />
+  <input [(ngModel)]="nuevaCancion.anio" placeholder="Año" />
+  <input [(ngModel)]="nuevaCancion.genero" placeholder="Género" />
+  <button (click)="agregarCancion()">Agregar Canción</button>
+
+  <div *ngIf="canciones.length > 0" class="lista-canciones">
+    <h4>Canciones agregadas:</h4>
+    <ul>
+      <li *ngFor="let c of canciones; let i = index">
+        {{c.titulo}} - {{c.artista}}
+        <button (click)="eliminarCancion(i)">Eliminar</button>
+      </li>
+    </ul>
+  </div>
+
+  <button (click)="crearPlaylist()">Crear Lista</button>
+  <p>{{message}}</p>
+</div>
+
+<app-list></app-list>
